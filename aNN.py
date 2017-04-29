@@ -65,20 +65,27 @@ def backPropogation():
     return 0
 
 def updateWeights():
+    for i in range(3):
+        for j in range(3):
+            weights[0][i][j]=weights[0][i][j]+network[0][j]*errorMatrix[0][i]
     return 0
 
-forwardPropogation()
-backPropogation()
-print(errorMatrix)
 
-# x=np.array([[1,2]])
-# print(weights.shape)
-print('network: ')
+print('\n\nnetwork: ')
 print(network)
-print('weights: ')
-print(weights)
-print('errorMatrix: ')
-print(errorMatrix)
-# print(np.transpose(weights[1]))
+forwardPropogation()
+print('\nupdated_network: ')
+print(network)
 
-print(weights[1][0][0]*errorMatrix[1]*network[1][0]*(1-network[1][0]))
+print('\n\nerrorMatrix: ')
+print(errorMatrix)
+backPropogation()
+print('\nupdated_errorMatrix: ')
+print(errorMatrix)
+
+print('\n\nweights: ')
+print(weights)
+updateWeights()
+print('\nupdated_weights: ')
+print(weights)
+
