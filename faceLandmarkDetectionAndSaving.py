@@ -44,7 +44,7 @@ print('classes and functions definition done:')
 i=1
 while i<=10:
     print('detecting and annotating landmarks:')
-    name = ("noyanFrontFace(%d).jpg" %i)
+    name = ("musabFace(%d).jpg" %i)
     image = cv2.imread(name)
     landmarks = get_Landmarks(image)
     print('printing landmarks:')
@@ -55,7 +55,7 @@ while i<=10:
 
     print('Displaying processed image')
     # cv2.imshow('Result', image_with_landmarks)
-    savingName = ("noyanFrontFace(%d)_with_landmarks.jpg" %i)
+    savingName = ("musabFace(%d)_with_landmarks.jpg" %i)
     cv2.imwrite(savingName, image_with_landmarks)
     i=i+1
 
