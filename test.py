@@ -4,36 +4,36 @@ import matplotlib.pyplot as plt
 import sys
 
 
-for iteration in range(100):  
-    f=1 
-    for picNo in range(20):
-        name = ('p%d.jpg' %f)
-        image = cv2.imread(name)
-        landmarks = fLD.get_Landmarks(image)
-        ans=fLD.extractFeatures(landmarks)
+# for iteration in range(100):  
+#     f=1 
+#     for picNo in range(20):
+#         name = ('p%d.jpg' %f)
+#         image = cv2.imread(name)
+#         landmarks = fLD.get_Landmarks(image)
+#         ans=fLD.extractFeatures(landmarks)
 
-        for x in range(30):
-            aNN.network[0][0][x]=ans[x]
+#         for x in range(30):
+#             aNN.network[0][0][x]=ans[x]
 
-        print(name)
-        aNN.forwardPropogation()
-        aNN.backPropogation(1)
-        aNN.updateWeights()
+#         print(name)
+#         aNN.forwardPropogation()
+#         aNN.backPropogation(1)
+#         aNN.updateWeights()
 
-        name = ('n%d.jpg' %f)
-        image = cv2.imread(name)
-        landmarks = fLD.get_Landmarks(image)
-        ans=fLD.extractFeatures(landmarks)
+#         name = ('n%d.jpg' %f)
+#         image = cv2.imread(name)
+#         landmarks = fLD.get_Landmarks(image)
+#         ans=fLD.extractFeatures(landmarks)
 
-        for x in range(30):
-            aNN.network[0][0][x]=ans[x]
+#         for x in range(30):
+#             aNN.network[0][0][x]=ans[x]
 
-        print(name)
-        aNN.forwardPropogation()
-        aNN.backPropogation(0)
-        aNN.updateWeights()
+#         print(name)
+#         aNN.forwardPropogation()
+#         aNN.backPropogation(0)
+#         aNN.updateWeights()
 
-        f=f+1        
+#         f=f+1        
 
 
 
