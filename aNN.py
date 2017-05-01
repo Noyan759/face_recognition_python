@@ -5,12 +5,13 @@ sl=np.array([3, 1])
 
 # Initializing weights:
 s1=(3,3)
-weightsL1 = np.full(s1, 0.01)
-
+# weightsL1 = np.full(s1, 0.01)
+weightsL1 = np.random.rand(3,3)
 s2=(1,3)
-weightsL2 = np.full(s2, 0.01)
+# weightsL2 = np.full(s2, 0.01)
+weightsL2 = np.random.rand(1,3)
 
-weights = np.array([weightsL1, weightsL2])
+weights = np.array([weightsL1, weightsL2])/100
 
 # # Input weights:
 # for i in range(3):
@@ -100,21 +101,21 @@ def updateWeights():
     return 0
 
 
-print('\n\nnetwork: ')
-print(network)
-forwardPropogation()
-print('\nupdated_network: ')
-print(network)
+# print('\n\nnetwork: ')
+# print(network)
+# forwardPropogation()
+# print('\nupdated_network: ')
+# print(network)
 
-print('\n\nerrorMatrix: ')
-print(errorMatrix)
-backPropogation()
-print('\nupdated_errorMatrix: ')
-print(errorMatrix)
+# print('\n\nerrorMatrix: ')
+# print(errorMatrix)
+# backPropogation()
+# print('\nupdated_errorMatrix: ')
+# print(errorMatrix)
 
-print('\n\nweights: ')
-print(weights)
-updateWeights()
-print('\nupdated_weights: ')
-print(weights)
+# print('\n\nweights: ')
+# print(weights)
+# updateWeights()
+# print('\nupdated_weights: ')
+# print(weights)
 

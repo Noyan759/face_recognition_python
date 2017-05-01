@@ -6,19 +6,21 @@ sl=np.array([30, 1])
 
 # Initializing weights:
 s1=(30,30)
-weightsL1 = np.full(s1, 0.01)
-
+# weightsL1 = np.full(s1, 0.01)
+weightsL1 = np.random.rand(30,30)
 s2=(1,30)
-weightsL2 = np.full(s2, 0.01)
+# weightsL2 = np.full(s2, 0.01)
+weightsL2 = np.random.rand(1,30)
 
-weights = np.array([weightsL1, weightsL2])
+weights = np.array([weightsL1, weightsL2])/100
 
-# # Input weights:
-# for i in range(30):
-#     for j in range(30):
-#         weights[0][i][j]=float(input("input: "))
-# for k in range(30):
-#     weights[1][0][k]=float(input("input2: "))
+# Input weights:
+def inputWeights():
+    for i in range(30):
+        for j in range(30):
+            weights[0][i][j]=float(input("input: "))
+    for k in range(30):
+        weights[1][0][k]=float(input("input2: "))
 
 #Initializing Network
 s1=(1,30)
@@ -43,7 +45,7 @@ errorLayer3 = np.zeros(s2)
 
 errorMatrix = np.array([errorLayer2, errorLayer3])
 
-dOutput = 1
+# dOutput = 1
 
 
 def sigmoid(x):
@@ -66,7 +68,7 @@ def forwardPropogation():
                 k=k+1
             network[layer+1][0][i]=sigmoid(z)  
 
-def backPropogation():
+def backPropogation(dOutput):
 
     errorMatrix[1][0][0] = dOutput-network[2][0][0]
     for i in range(30):
@@ -77,10 +79,10 @@ def backPropogation():
 def updateWeights():
     for i in range(30):
         for j in range(30):
-            weights[0][i][j]=weights[0][i][j]+network[0][0][j]*errorMatrix[0][0][i]
+            weights[0][i][j]=weights[0][i][j]+(0.001)*network[0][0][j]*errorMatrix[0][0][i]
 
     for k in range(30):
-        weights[1][0][k]=weights[1][0][k]+network[1][0][k]*errorMatrix[1][0][0]
+        weights[1][0][k]=weights[1][0][k]+(0.001)*network[1][0][k]*errorMatrix[1][0][0]
     return 0
 
 

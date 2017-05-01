@@ -66,21 +66,17 @@ def annotate_landmarks(im, landmarks):
 i=1
 # print('detecting and annotating landmarks:')
 # name = ("noyanFrontFace(%d).jpg" %i)
-name = 'sohaibFace(3).jpg'
-image = cv2.imread(name)
-landmarks = get_Landmarks(image)
 
-array=[]
-
-def extractFeatures():
+def extractFeatures(landmarks):
     c=1
+    array=[]
     for j in range(30):
         p1=int(featureCoordinates[j][0])
         p2=int(featureCoordinates[j][1])
         ans=euclideanDistance(landmarks, p1, p2)
-        print(c, p1, p2, ans)
         array.append(ans)
         c=c+1
+    return array
 
 # print('done')
 # image_with_landmarks = annotate_landmarks(image, landmarks)

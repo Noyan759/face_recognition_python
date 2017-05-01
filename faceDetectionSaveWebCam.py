@@ -7,9 +7,9 @@ eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 cap = cv2.VideoCapture(0)
 # img = cv2.imread('shayan.jpg', cv2.IMREAD_GRAYSCALE)
 # img = cv2.imread('noyan3.jpg')
-i=0
+i=16
 image=0
-while i<10:
+while i<21:
     ret, img = cap.read()
 	#img = cv2.imread('shayan.jpg', cv2.IMREAD_GRAYSCALE)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -27,9 +27,10 @@ while i<10:
         print('breaking\n')
         break
     i=i+1
-    for x in range(30000000):
+    for u in range(30000000):
         y=1
-    name = ("sohaibFace(%d)" %i)
+    
+    name = ("n(%d)" %i)
     print(name)
     cv2.imwrite(''+name+'.jpg', roi_gray)
     # cv2.imwrite('name', image)
