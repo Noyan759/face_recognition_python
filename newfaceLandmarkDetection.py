@@ -61,11 +61,9 @@ def annotate_landmarks(im, landmarks):
         cv2.circle(im, pos, 3, color = (0, 0, 255))
     return im
 
-# print('classes and functions definition done:')
-
 i=1
-# print('detecting and annotating landmarks:')
-# name = ("noyanFrontFace(%d).jpg" %i)
+
+array2=np.array([])
 
 def extractFeatures(landmarks):
     c=1
@@ -77,6 +75,22 @@ def extractFeatures(landmarks):
         array.append(ans)
         c=c+1
     return array
+
+def extractRatios(eFA):
+    array=[]
+    for i in range(29):
+        ans=(eFA[i]/eFA[i+1])
+        array.append(ans)
+    ans=(eFA[0]/eFA[29])
+    array.append(ans)
+    return array
+
+# name = ('p1.jpg')
+# image = cv2.imread(name)
+# landmarks = get_Landmarks(image)
+# ans=extractFeatures(landmarks)
+
+# print(ans)
 
 # print('done')
 # image_with_landmarks = annotate_landmarks(image, landmarks)
